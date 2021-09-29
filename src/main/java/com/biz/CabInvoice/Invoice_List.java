@@ -5,7 +5,7 @@ import java.util.Map;
 public class Invoice_List {
     Map<String, ArrayList<CabRides>> RideMap;
 
-    public Invoice_List() {
+    public Invoice_List(int size, double totalFare) {
         this.RideMap = new HashMap<>();
     }
 
@@ -16,7 +16,7 @@ public class Invoice_List {
 
     public ArrayList<CabRides> getRides(String id) {
         if (RideMap.containsKey(id))
-            return RideMap.get(id);
+            return RideMap[id];
         else
             return null;
     }
