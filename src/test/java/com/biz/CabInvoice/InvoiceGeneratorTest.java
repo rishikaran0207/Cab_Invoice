@@ -29,4 +29,16 @@ public class InvoiceGeneratorTest {
         double totalFare = invoiceGenerator.calculateFare(rides);
         Assert.assertEquals(57, totalFare, 0.0);
     }
+    @Test
+    public void multipleRides_ReturnInvoiceSummary() {
+
+        CabRides[] rides = {new CabRides(5.0, 5),
+                new CabRides(0.1, 1)};
+        CabSummary actualsummary = invoiceGenerator.calculateFareReturnSummary(rides);
+        CabSummary expectedSummary = new CabSummary(2, 60);
+        if(expectedSummary.getAverageFare() == actualsummary.getAverageFare() && expectedSummary.getNumberOfRides() == actualsummary.getNumberOfRides() && expectedSummary.getTotalFare() == actualsummary.getTotalFare())
+            Assert.assertEquals(1, 1);
+        else
+            Assert.assertEquals(1,0);
+    }
 }
