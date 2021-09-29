@@ -12,4 +12,12 @@ public class InvoiceGenerator {
             return Minimum_Pay;
         return totalFare;
     }
+    public double calculateFare(CabRides[] rides) {
+
+        double totalFare = 0;
+        for (CabRides ride : rides) {
+            totalFare = totalFare + this.calculateFare(ride.distance, ride.time);
+        }
+        return totalFare;
+    }
 }
